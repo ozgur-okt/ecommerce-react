@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300&display=swap");
+
+.payment {
+  margin: 3rem 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Montserrat, sans-serif;
+  text-align: center;
+}
+.payment h1{
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  color: #7589eb;
+}
+.payment h4 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  color: #7589eb;
+}
+.payment .card-details {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  height: auto;
+  min-width: 50rem ;
+  width: 60%;
+  margin: 0 auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.payment .card-details .form-group {
+  width: 25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.payment .card-details .form-group small{
+  font-size: 1rem;
+}
+
+.payment .card-details .form-group input {
+  font-family: Montserrat, sans-serif;
+  padding: 1%;
+  height: 2.4rem;
+  width: 15rem;
+  border: none;
+  border-bottom: 2px solid #7589eb;
+  border-radius: 3px 3px 0 0;
+  background-color: #dcdcdc45;
+}
+
+.payment .card-details .form-group input:focus {
+  outline: none;
+  background-color: aliceblue;
+}
+.payment .card-details button {
+  font-family: Montserrat, sans-serif;
+  transition-duration: 0.7s;
+  margin-top: 16%;
+  height: 3em;
+  width: 23rem;
+  color: white;
+  background-color: #7589eb;
+  border-radius: 6px;
+  border: 0;
+}
+
+.payment .card-details button:hover {
+  background-color: #ccd5fc;
+  color: black;
+  border-radius: 3px;
+}
+
+.payment .card-details .credit-card {
+  margin: 0.7rem 0 0 5rem;
+}
+
+@media (max-width:768px) {
+  .payment .card-details {
+    flex-direction:column-reverse;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 30rem;
+    height: 80vh;
+  }
+  .payment .card-details .credit-card {
+    margin: 0.7rem 0 0 0;
+  }
+}
+  
+
+

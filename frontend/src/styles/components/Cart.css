@@ -1,0 +1,115 @@
+.cart {
+    display: flex;
+    padding: 1rem;
+    margin-top: 2.5rem;
+    flex-direction: column;
+    border-radius: 0.25rem;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    width: 253px;
+}
+
+.cart .products {
+    display: flex;
+    align-items: center;
+
+}
+
+.cart .products .info {
+    flex-grow: 1;
+}
+
+.cart .products .info .info-name {
+    font-weight: 600;
+}
+
+.cart .products .info .info-price {
+    font-weight: 700;
+    color: #2A59FE;
+}
+
+.cart .products .quantity-field {
+    flex: none;
+}
+
+.cart .products .decrease {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 0.25rem;
+    font-weight: 700;
+    background: #f3f3f6;
+    color: #616b8a;
+}
+
+.cart .products .quantity {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    color: #ffffff;
+    background: #2a59fe;
+}
+
+.cart .products .increase {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 0.25rem;
+    font-weight: 700;
+    background: #f3f3f6;
+    color: #616b8a;
+}
+
+.cart .empty {
+    text-align: center;
+}
+
+.price-box {
+    display: flex;
+    padding: 1rem;
+    margin-top: 2.5rem;
+    flex-direction: column;
+    border-radius: 0.25rem;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    width: 250px;
+}
+
+.price-box .price-title {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+.price-box .price-value {
+    font-weight: 700;
+    color: #2A59FE;
+}
+
+.price-box .checkout {
+    padding: 0.5rem;
+    margin-top: 1.5rem;
+    color: #ffffff;
+    background: #2A59FE;
+}
+
+@media screen and (max-width: 768px) {
+    .cart {
+       position: fixed;
+       width: 100%;
+       bottom: 8rem;
+       left: 0;
+    }
+    .price-box {
+        position: fixed;
+        width: 100%;
+        bottom: 0rem;
+        left: 0;
+    }
+    .price-box .checkout {
+        width: 100%;
+    }
+    
+}

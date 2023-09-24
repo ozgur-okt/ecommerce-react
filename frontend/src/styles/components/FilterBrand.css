@@ -1,0 +1,37 @@
+.brand-title {
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+}
+
+.brands {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.25rem;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    width: 220px;
+}
+
+.brands .brand-search {
+    padding: 0.25rem; 
+    margin-bottom: 0.5rem; 
+    border-radius: 0.25rem; 
+    border-width: 1px; 
+    border-color: #D1D5DB; 
+    width: 100%;    
+}
+
+.brands .brand-options-box {
+    overflow-y: auto; 
+    max-height: 9rem;
+    min-height: 9rem;   
+}
+.brands .brand-options-box .brand-options {
+    margin-bottom: 0.5rem; 
+}
+
+.brands .brand-options-box .brand-options .brand-label {
+    margin-left: 0.5rem; 
+}
