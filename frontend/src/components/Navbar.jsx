@@ -26,11 +26,11 @@ const Navbar = () => {
       </div>
       <div className="content">
         <div className="user-info">
-          <AiOutlineWallet className="icon" /> {ACCOUNT_BALANCE} {CURRENCY}
+          <AiOutlineWallet className="icon" />{ACCOUNT_BALANCE} {CURRENCY}
         </div>
         <div className="user-info" >
           <AiOutlineUser className="icon" />
-          {USER_NAME} {' '} {USER_SURNAME}
+          {USER_NAME} {USER_SURNAME}
         </div>
       </div>
     </nav>
