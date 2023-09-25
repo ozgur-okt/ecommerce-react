@@ -64,7 +64,7 @@
   min-height: 5rem;
 }
 
-.pd .pd-content .pd-info a {
+.pd .pd-content .pd-info .text-amount {
   margin-top: 3rem;
   color: #2A59FE;
   cursor: pointer;

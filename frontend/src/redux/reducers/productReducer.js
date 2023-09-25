@@ -1,5 +1,3 @@
-import axios from "axios"
-import { BASE_URL } from "../../constants"
 
 const initialState = {
   products: [],
@@ -7,7 +5,6 @@ const initialState = {
   modelOption: null,
   brandOption: null,
   searchQuery: '',
-  productsInCart: [],
   models: [],
   brands: [],
 }

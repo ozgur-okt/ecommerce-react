@@ -1,7 +1,6 @@
 import React, { useEffect } from "react"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
-import { Provider, useDispatch } from 'react-redux'
-import store from './redux/store'
+import { useDispatch } from 'react-redux'
 import ProductList from "./pages/ProductList.jsx"
 import ProductDetails from "./pages/ProductDetails.jsx"
 import Payment from "./pages/Payment.jsx"

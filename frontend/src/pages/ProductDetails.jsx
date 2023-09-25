@@ -36,12 +36,12 @@ const ProductDetails = () => {
           {readMore ?
             <>
               <p className="pd-description">{oneProduct?.description}</p>
-              <a onClick={() => setReadMore(false)}> Show less </a>
+              <p className="text-amount" onClick={() => setReadMore(false)}> Show less </p>
             </>
             :
             <>
               <p className="pd-description">{oneProduct?.description.slice(0, 200) + '...'} </p>
-              <a onClick={() => setReadMore(true)}> Read more </a>
+              <p className="text-amount" onClick={() => setReadMore(true)}> Read more </p>
             </>
           }
         </div>
