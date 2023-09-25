@@ -80,7 +80,7 @@ node index
 Now, you should have the frontend and backend servers up and running.
 
 ## Usage
-Once you've started the servers, open your web browser and navigate to the provided URL (typically http://localhost:3000) to start using the application. Explore the product catalog, use the filtering and sorting options, and add products to your cart. You can also access the payment page to complete your demo purchase.
+Once you've started the servers, open your web browser and navigate to the provided URL (http://localhost:3000) to start using the application. Explore the product catalog, use the filtering and sorting options, and add products to your cart. You can also access the payment page to complete your demo purchase.
 
 ## Testing
 We have thoroughly tested this application using Cypress. To execute the test files, follow these steps:
