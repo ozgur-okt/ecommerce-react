@@ -1,19 +1,15 @@
-import React, { useState, useRef } from 'react';
-import Card from 'react-credit-cards';
-import '../styles/pages/Payment.css';
-import {
-  formatCreditCardNumber,
-  formatCVC,
-  formatExpirationDate,
-} from '../utils/paymentCheck';
-import 'react-credit-cards/es/styles-compiled.css';
-import { useSelector } from 'react-redux';
+import React, { useState, useRef } from 'react'
+import Card from 'react-credit-cards'
+import '../styles/pages/Payment.css'
+import { formatCreditCardNumber, formatCVC, formatExpirationDate } from '../utils/paymentCheck'
+import 'react-credit-cards/es/styles-compiled.css'
+import { useSelector } from 'react-redux'
 
 const Payment = () => {
-  const productsInCart = useSelector((state) => state.cart.productsInCart);
+  const productsInCart = useSelector((state) => state.cart.productsInCart) || []
   const totalPrice = productsInCart.reduce((total, product) => {
-    return total + product.price * product.quantity;
-  }, 0);
+    return total + product.price * product.quantity
+  }, 0) || 0
   
   const [formData, setFormData] = useState({
     number: "",
@@ -22,44 +18,44 @@ const Payment = () => {
     cvc: "",
     issuer: "",
     focused: ""
-  });
+  })
 
-  const formRef = useRef(null);
+  const formRef = useRef(null)
 
   const handleCallback = ({ issuer }, isValid) => {
     if (isValid) {
-      setFormData((prevData) => ({ ...prevData, issuer }));
+      setFormData((prevData) => ({ ...prevData, issuer }))
     }
-  };
+  }
 
   const handleInputFocus = ({ target }) => {
-    setFormData((prevData) => ({ ...prevData, focused: target.name }));
-  };
+    setFormData((prevData) => ({ ...prevData, focused: target.name }))
+  }
 
   const handleInputChange = ({ target }) => {
-    let { name, value } = target;
+    let { name, value } = target
 
     if (name === "number") {
-      value = formatCreditCardNumber(value);
+      value = formatCreditCardNumber(value)
     } else if (name === "expiry") {
-      value = formatExpirationDate(value);
+      value = formatExpirationDate(value)
     } else if (name === "cvc") {
-      value = formatCVC(value);
+      value = formatCVC(value)
     }
 
     setFormData((prevData) => ({
       ...prevData,
       [name]: value
-    }));
-  };
+    }))
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("You have finished payment!");
-    formRef.current.reset();
-  };
+    e.preventDefault()
+    alert("You have finished payment!")
+    formRef.current.reset()
+  }
 
-  const { name, number, expiry, cvc, focused, issuer } = formData;
+  const { name, number, expiry, cvc, focused, issuer } = formData
 
   return (
     <div key="Payment">
@@ -139,7 +135,7 @@ const Payment = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Payment;
+export default Payment

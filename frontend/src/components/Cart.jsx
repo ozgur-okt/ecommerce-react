@@ -1,21 +1,21 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { decreaseQuantityInCart, increaseQuantityInCart } from "../redux/actions/cartActions";
-import "../styles/components/Cart.css";
-import { Link } from "react-router-dom";
+import React from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { decreaseQuantityInCart, increaseQuantityInCart } from "../redux/actions/cartActions"
+import "../styles/components/Cart.css"
+import { Link } from "react-router-dom"
 
 const Cart = () => {
-  const dispatch = useDispatch();
-  let cartProducts = useSelector((state) => state.cart.productsInCart);
+  const dispatch = useDispatch()
+  let cartProducts = useSelector((state) => state.cart.productsInCart) || []
 
 
   const calculateTotalPrice = () => {
-    let total = 0;
+    let total = 0
     cartProducts.forEach((product) => {
-      total += product.price * product.quantity;
-    });
-    return total;
-  };
+      total += product.price * product.quantity
+    })
+    return total
+  }
 
   return (
     <>
@@ -64,7 +64,7 @@ const Cart = () => {
         </Link>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart

@@ -5,30 +5,30 @@ import '../styles/components/FilterBrand.css'
 
 const FilterBrand = () => {
   const dispatch = useDispatch()
-  const brands = useSelector((state) => state.products.brands)
+  const brands = useSelector((state) => state.products.brands) || []
 
   const [selectedBrand, setSelectedBrand] = useState('')
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState('')
 
   useEffect(() => {
     dispatch(setBrandOption(selectedBrand))
-  }, [selectedBrand])
+  }, [selectedBrand, dispatch])
 
   useEffect(() => {
     dispatch(fetchBrands())
-  }, [])
+  }, [dispatch])
 
   const brandSelect = (brand) => {
     if (selectedBrand === brand) {
       setSelectedBrand('')
     } else {
-      setSelectedBrand(brand);
+      setSelectedBrand(brand)
     }
-  };
+  }
 
   const searchedBrands = brands.filter((brand) =>
     brand.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  )
 
   return (
     <>
@@ -42,7 +42,7 @@ const FilterBrand = () => {
           className="brand-search"
         />
         <div className="brand-options-box">
-          {searchedBrands?.map((brand) => (
+          {(searchedBrands || []).map((brand) => (
             <div key={brand} className="brand-options">
               <input
                 type="checkbox"
@@ -57,7 +57,7 @@ const FilterBrand = () => {
               </label>
             </div>
           ))}
-          {searchedBrands.length === 0 && <p>No brand found...</p>}
+          {(searchedBrands || []).length === 0 && <p>No brand found...</p>}
         </div>
       </div>
     </>

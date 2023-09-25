@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { setProductsInCart } from "../redux/actions/cartActions";
-import Cart from "../components/Cart";
-import "../styles/pages/ProductDetails.css";
+import React, { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { useParams } from "react-router-dom"
+import { setProductsInCart } from "../redux/actions/cartActions"
+import Cart from "../components/Cart"
+import "../styles/pages/ProductDetails.css"
 
 
 const ProductDetails = () => {
-  const dispatch = useDispatch();
-  const { productId } = useParams();
-  const products = useSelector((state) => state.products.products);
-  const oneProduct = products.find((product) => product.id === productId);
+  const dispatch = useDispatch()
+  const { productId } = useParams() 
+  const products = useSelector((state) => state.products.products) || []
+  const oneProduct = products.find((product) => product.id === productId) || null
 
-  const [readMore, setReadMore] = useState(false);
+  const [readMore, setReadMore] = useState(false)
 
   if (!oneProduct) {
     return <div> Loading... </div>
@@ -50,7 +50,7 @@ const ProductDetails = () => {
         <Cart />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProductDetails;
+export default ProductDetails

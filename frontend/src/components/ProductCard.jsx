@@ -1,12 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { setProductsInCart } from "../redux/actions/cartActions";
-import { useDispatch } from "react-redux";
-import Tooltip from '@mui/material/Tooltip';
-import "../styles/components/ProductCard.css";
+import React from "react"
+import { Link } from "react-router-dom"
+import { setProductsInCart } from "../redux/actions/cartActions"
+import { useDispatch } from "react-redux"
+import Tooltip from '@mui/material/Tooltip'
+import "../styles/components/ProductCard.css"
 
 const ProductCard = ({ product }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   return (
     <div className="product-card">
@@ -29,7 +29,7 @@ const ProductCard = ({ product }) => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default ProductCard

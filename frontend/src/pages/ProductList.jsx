@@ -10,26 +10,23 @@ import "../styles/pages/ProductList.css"
 
 const ProductList = () => {
   const [currentPage, setCurrentPage] = useState(1)
-  const products = useSelector((state) => state.products.products)
-  const modelOption = useSelector((state) => state.products.modelOption)
-  const brandOption = useSelector((state) => state.products.brandOption)
-  const sortOption = useSelector((state) => state.products.sortOption)
-  const searchQuery = useSelector((state) => state.products.searchQuery)
+  const products = useSelector((state) => state.products.products) || []
+  const modelOption = useSelector((state) => state.products.modelOption) || ''
+  const brandOption = useSelector((state) => state.products.brandOption) || ''
+  const sortOption = useSelector((state) => state.products.sortOption) || ''
+  const searchQuery = useSelector((state) => state.products.searchQuery) || ''
 
-  let filteredProducts = products
+  let filteredProducts = products || []
   let searched = []
 
   const sort = (products, sortOption) => {
     let sorted = []
     if (sortOption === 'priceLowToHigh') {
       sorted = [...products].sort((a, b) => a.price - b.price)
-
     } else if (sortOption === 'priceHighToLow') {
       sorted = [...products].sort((a, b) => b.price - a.price)
-
     } else if (sortOption === 'dateNewToOld') {
       sorted = [...products].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-
     } else if (sortOption === 'dateOldToNew') {
       sorted = [...products].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
     }
@@ -41,7 +38,7 @@ const ProductList = () => {
       if (product.name.toLowerCase().includes(searchQuery.toLowerCase()) && searched.indexOf(product) === -1) {
         searched.push(product)
       }
-    });
+    })
     filteredProducts = []
     filteredProducts = searched
   }
@@ -55,7 +52,7 @@ const ProductList = () => {
       if (product.model === modelOption && models.indexOf(product) === -1) {
         models.push(product)
       }
-    });
+    })
     if (sortOption) {
       filteredProducts = []
       filteredProducts = sort([...models, ...brands], sortOption)
@@ -75,7 +72,7 @@ const ProductList = () => {
       if (product.brand === brandOption && brands.indexOf(product) === -1) {
         brands.push(product)
       }
-    });
+    })
     if (sortOption) {
       filteredProducts = []
       filteredProducts = sort([...models, ...brands], sortOption)
@@ -98,13 +95,13 @@ const ProductList = () => {
     }
   }
 
-  const currentDisplayedProducts = [...new Set(filteredProducts)]
+  const currentDisplayedProducts = [...new Set(filteredProducts)] || []
 
-  const indexOfLastProduct = currentPage * ITEMS_PER_PAGE
+  const indexOfLastProduct = currentPage * ITEMS_PER_PAGE 
   const indexOfFirstProduct = indexOfLastProduct - ITEMS_PER_PAGE
-  const currentPageProducts = currentDisplayedProducts.slice(indexOfFirstProduct, indexOfLastProduct)
+  const currentPageProducts = currentDisplayedProducts.slice(indexOfFirstProduct, indexOfLastProduct) || []
 
-  const totalPages = Math.ceil(currentDisplayedProducts.length / ITEMS_PER_PAGE)
+  const totalPages = Math.ceil(currentDisplayedProducts.length / ITEMS_PER_PAGE) || 1
   const nextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1)
@@ -125,10 +122,10 @@ const ProductList = () => {
           <FilterBrand />
         </div>
         <div className="product-cards">
-          {currentDisplayedProducts.length === 0 && searchQuery &&
+          {(currentDisplayedProducts || []).length === 0 && searchQuery &&
             alert(`No products found with: "${searchQuery}"`)}
           <div className="single-card">
-            {currentPageProducts?.map((product) => (
+            {(currentPageProducts || []).map((product) => (
               <ProductCard
                 key={product.id}
                 product={product}

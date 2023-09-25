@@ -5,30 +5,30 @@ import '../styles/components/FilterModel.css'
 
 const FilterModel = () => {
   const dispatch = useDispatch()
-  const models = useSelector((state) => state.products.models)
+  const models = useSelector((state) => state.products.models) || []
 
   const [selectedModel, setSelectedModel] = useState(null)
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState('')
 
   useEffect(() => {
     dispatch(setModelOption(selectedModel))
-  }, [selectedModel])
+  }, [selectedModel, dispatch])
 
   useEffect(() => {
     dispatch(fetchModels())
-  }, [])
+  }, [dispatch])
 
   const modelSelect = (model) => {
     if (selectedModel === model) {
       setSelectedModel('')
     } else {
-      setSelectedModel(model);
+      setSelectedModel(model)
     }
-  };
+  }
 
   const searchedModels = models.filter((model) =>
     model.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  )
 
   return (
     <>
@@ -42,7 +42,7 @@ const FilterModel = () => {
           className="model-search"
         />
         <div className="model-options-box">
-          {searchedModels?.map((model) => (
+          {(searchedModels || []).map((model) => (
             <div key={model} className="model-options">
               <input
                 type="checkbox"
@@ -57,7 +57,7 @@ const FilterModel = () => {
               </label>
             </div>
           ))}
-          {searchedModels.length === 0 && <p>No model found...</p>}
+          {(searchedModels || []).length === 0 && <p>No model found...</p>}
         </div>
       </div>
     </>

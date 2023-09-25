@@ -8,7 +8,7 @@ import { setSearchQuery } from "../redux/actions/productActions"
 
 const Navbar = () => {
   const dispatch = useDispatch()
-  const searchQuery = useSelector((state) => state.products.searchQuery)
+  const searchQuery = useSelector((state) => state.products.searchQuery) || ''
 
   return (
     <nav className="navbar">

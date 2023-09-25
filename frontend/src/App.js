@@ -12,8 +12,8 @@ function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchProducts())
-    dispatch(fetchProductsInCart());
-  }, [])
+    dispatch(fetchProductsInCart())
+  }, [dispatch])
 
   return (
     <Router>

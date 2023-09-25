@@ -6,7 +6,7 @@ import '../styles/components/SortProducts.css'
 const SortProducts = () => {
   const dispatch = useDispatch()
 
-  const [sortSelected, setSortSelected] = useState(null);
+  const [sortSelected, setSortSelected] = useState(null)
   const [sortOptions, setSortOptions] = useState({
     priceLowToHigh: false,
     priceHighToLow: false,
@@ -15,22 +15,22 @@ const SortProducts = () => {
   })
 
   const sortingOptionChange = (option) => {
-    const updatedSortOptions = {};
+    const updatedSortOptions = {}
     if (sortSelected === option) {
       setSortSelected(null)
       Object.keys(sortOptions).forEach(key => {
-        updatedSortOptions[key] = false;
-      });
+        updatedSortOptions[key] = false
+      })
       dispatch(setSortOption(null))
     }
     else {
       setSortSelected(option)
       Object.keys(sortOptions).forEach(key => {
-        updatedSortOptions[key] = key === option;
-      });
+        updatedSortOptions[key] = key === option
+      })
       dispatch(setSortOption(option))
     }
-    setSortOptions(updatedSortOptions);
+    setSortOptions(updatedSortOptions)
   }
 
   return (
@@ -59,7 +59,6 @@ const SortProducts = () => {
             New to Old
           </label>
         </div>
-
         <div className="sort-option">
           <input
             type="checkbox"
