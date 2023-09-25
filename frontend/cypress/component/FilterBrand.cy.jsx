@@ -10,5 +10,26 @@ describe('FilterBrand', () => {
         <FilterBrand />
       </Provider>
     )
+    cy.get('.brand-title').should('exist').and('have.text', 'Brand')
+
+    cy.get('.brand-search').should('exist')
+
+    cy.get('.brand-search').should('have.value', '')
+
+    cy.get('.brand-options input[type="checkbox"]').should('exist')
+
+    cy.get('.brand-label').should('exist')
+
+    cy.get('.brand-search').type('Smart')
+
+    cy.get('.brand-search').should('have.value', 'Smart')
+
+    cy.get('.brand-options input[type="checkbox"]').eq(0).check()
+
+    cy.get('.brand-options input[type="checkbox"]').eq(0).should('be.checked')
+
+    cy.get('.brand-search').type('Test')
+
+    cy.contains('No brand found...').should('exist')
   })
 })

@@ -1,11 +1,10 @@
 import React from 'react'
 import ProductCard from '../../src/components/ProductCard'
 import { Provider } from 'react-redux'
-import store from "../../src/redux/store";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
-import ProductList from '../../src/pages/ProductList';
-import ProductDetails from '../../src/pages/ProductDetails';
+import store from "../../src/redux/store"
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import ProductList from '../../src/pages/ProductList'
+import ProductDetails from '../../src/pages/ProductDetails'
 
 describe('ProductCard', () => {
   it('renders', () => {
@@ -19,7 +18,7 @@ describe('ProductCard', () => {
       model: "CTS",
       brand: "Lamborghini",
       id: "1"
-    };
+    }
 
     cy.mount(
       <Provider store={store}>
@@ -33,14 +32,17 @@ describe('ProductCard', () => {
       </Provider>
     )
     
-    cy.get(".product-name").should("contain.text", product.name);
-    cy.get(".product-price").should("contain.text", `$${product.price}`);
-    cy.get(".image-box img").should("have.attr", "src", product.image);
+    cy.get(".product-name").should("contain.text", product.name)
+
+    cy.get(".product-price").should("contain.text", `$${product.price}`)
+
+    cy.get(".image-box img").should("have.attr", "src", product.image)
+    
     cy.get("button:contains('Add to Cart')")
       .should("exist")
       .should("be.visible")
       .should("be.enabled")
-      .click();
+      .click()
 
   })
 })
