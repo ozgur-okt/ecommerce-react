@@ -1,4 +1,4 @@
-# Ecommerce Task
+# Ecommerce App
 
 [screen-capture.webm](https://github.com/ozgur-okt/ete-task/assets/73358116/346fd652-a0b4-49b1-af5b-0e9954500bf6)
 
